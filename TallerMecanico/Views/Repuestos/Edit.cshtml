@@ -1,25 +1,29 @@
-﻿<div class="span9">
+﻿@model TallerMecanico.Models.Repuesto
+
+@Html.ValidationSummary()
+
+<div class="span9">
     <div class="page-header">
         <h1>Editar Repuesto</h1>
     </div>
-    <form class="form-horizontal">
+    <form method="POST" class="form-horizontal" action="@Url.Action("Edit","Repuestos")">
         <fieldset>
             <div class="control-group">
                 <label class="control-label">Nombre:</label>
                 <div class="controls">
-                    <input class="input-xlarge" type="text" value="Pastilla de freno">
+                    <input class="input-xlarge" name="Nombre" type="text" value="Pastilla de freno">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Precio:</label>
                 <div class="controls">
-                    <input class="input-xlarge" type="text" value="20.000">
+                    <input class="input-xlarge" name="Precio" type="text" value="20.000">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Stock:</label>
                 <div class="controls">
-                    <input class="input-xlarge" type="text" value="10">
+                    <input class="input-xlarge" name="Stock" type="text" value="10">
                 </div>
             </div>
 
