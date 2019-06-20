@@ -1,4 +1,6 @@
-﻿<div class="span9">
+﻿@model IEnumerable<TallerMecanico.Models.Automovil>
+
+<div class="span9">
     <div class="page-header">
         <h1>Listar automóviles</h1>
     </div>
@@ -16,7 +18,25 @@
             </tr>
         </thead>
         <tbody>
+            @foreach (var automovil in Model)
+            {
             <tr>
+                <td>@automovil.Id</td>
+                <td>@automovil.Patente</td>
+                @*<td>@automovil.Marca</td>*@
+                <td>@automovil.Modelo</td>
+                <td>@automovil.Color</td>
+                <td>@automovil.Anio</td>
+                <td>Estatico</td>
+                <td>
+                    <a href="@Url.Action("View","Automoviles", new { id = automovil.Id})">Ver</a>
+                     | <a href="@Url.Action("Edit","Automoviles", new { id = automovil.Id})">Editar</a>
+                </td>
+
+            </tr>
+                
+            }
+            @*<tr>
                 <td>1</td>
                 <td>CXRX88</td>
                 <td>Chevrolet</td>
@@ -70,7 +90,8 @@
                     <a href="/Automoviles/edit">Editar</a>
                     <a href="#">Repuestos</a>
                 </td>
-            </tr>
+            </tr>*@
         </tbody>
     </table>
+    <p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>
 </div>

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<TallerMecanico.Models.Marca>
 <div class="span9">
     <div class="page-header">
         <h1>Listar Marcas</h1>
@@ -9,50 +9,25 @@
             <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Automóviles</th>
+                @*<th>Automóviles</th>*@
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Chevrolet</td>
-                <td>10</td>
-                <td>
-                    <a href="/Marcas/ver">Ver</a>
-                    <a href="/Marcas/edit">Editar</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>2</td>
-                <td>Chevrolet</td>
-                <td>10</td>
-                <td>
-                    <a href="/Marcas/ver">Ver</a>
-                    <a href="/Marcas/edit">Editar</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>3</td>
-                <td>Chevrolet</td>
-                <td>10</td>
-                <td>
-                    <a href="/Marcas/ver">Ver</a>
-                    <a href="/Marcas/edit">Editar</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>4</td>
-                <td>Chevrolet</td>
-                <td>10</td>
-                <td>
-                    <a href="/Marcas/ver">Ver</a>
-                    <a href="/Marcas/edit">Editar</a>
-                </td>
-            </tr>
+
+            @foreach (var marca in Model)
+            {
+                <tr>
+                    <td>@marca.Id</td>
+                    <td>@marca.Nombre</td>
+                    <td>
+                        <a href="@Url.Action("View", "Marca", new { id = marca.Id })">Ver</a>
+                        | <a href="@Url.Action("edit","Marca", new { id = marca.Id})">Editar</a>
+                    </td>
+
+                </tr>
+            }
         </tbody>
     </table>
+    <p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>
 </div>

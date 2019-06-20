@@ -9,10 +9,14 @@ namespace TallerMecanico.Controllers
 {
     public class AutomovilesController : Controller
     {
+
+        private TallerContext _db = new TallerContext();
+     
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            List<Automovil> Automoviles = _db.Automoviles.ToList();
+            return View(Automoviles);
         }
 
         [HttpGet]
@@ -27,7 +31,8 @@ namespace TallerMecanico.Controllers
         {
             if (ModelState.IsValid)
             {
-                // por aqui guardamos en la base de datos
+                _db.Automoviles.Add(auto);
+                _db.SaveChanges();
                 return RedirectToAction("Index", "Automoviles");
             }
             return View(auto);
