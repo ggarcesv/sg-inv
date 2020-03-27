@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TallerMecanico.Models;
 
+
 namespace TallerMecanico.Controllers
 {
     public class MarcasController : Controller
@@ -31,7 +32,7 @@ namespace TallerMecanico.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db = new TallerContext();// por aqui guardamos en la base de datos
+                _db = new TallerContext();
                 _db.Marcas.Add(m);
                 _db.SaveChanges();
                 return RedirectToAction("Index", "Marcas");
@@ -41,9 +42,10 @@ namespace TallerMecanico.Controllers
 
 
         [HttpGet]
-        public ActionResult Edit(int id, Marca m)
+        public ActionResult Edit(int id)
         {
-            using (_db=new TallerContext())
+            Marca m = null;
+            using (_db = new TallerContext())
             {
                 m = _db.Marcas.Find(id);
             }
@@ -51,23 +53,40 @@ namespace TallerMecanico.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Marca m)
         {
-            Marca m = null;
             if (ModelState.IsValid)
             {
-                //_db = new TallerContext();
-                //_db.Entry(m).State = System.Data.EntityState.Modified;  // por aqui guardamos en la base de datos
-                //_db.SaveChanges();
-                //return RedirectToAction("View", "Marcas", new { id = m.id });
+                _db = new TallerContext();
+                _db.Entry(m).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index", "Marcas", new { id = m.Id });
             }
             return View(m);
         }
 
         [HttpGet]
+        public ActionResult Ver(int id)
+        {
+            Marca m = null;
+            using (_db = new TallerContext())
+            {
+                m = _db.Marcas.Find(id);
+            }
+            return View(m);
+        }
+
+
+        [HttpPost]
         public ActionResult Ver()
         {
-            return View();
+
+            return RedirectToAction("Index", "Marcas");
         }
     }
+
+
+
+     
+
 }

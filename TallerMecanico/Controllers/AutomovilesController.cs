@@ -15,7 +15,9 @@ namespace TallerMecanico.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Automovil> Automoviles = _db.Automoviles.ToList();
+            IEnumerable<Automovil> Automoviles = null;
+            _db = new TallerContext();
+            Automoviles = _db.Automoviles.ToList();
             return View(Automoviles);
         }
 
@@ -42,7 +44,12 @@ namespace TallerMecanico.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View();
+            Automovil auto = null;
+            using (_db = new TallerContext())
+            {
+                auto = _db.Automoviles.Find(id);
+            }
+            return View(auto);
         }
 
         [HttpPost]
@@ -50,16 +57,31 @@ namespace TallerMecanico.Controllers
         {
             if (ModelState.IsValid)
             {
-                // por aqui guardamos en la base de datos
-                return RedirectToAction("View", "Automoviles", new { id = id });
+                _db = new TallerContext();
+                _db.Entry(auto).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index", "Automoviles", new { id = auto.Id });
             }
             return View(auto);
         }
       
         [HttpGet]
+        public ActionResult Ver(int id)
+        {
+            Automovil auto = null;
+            using (_db = new TallerContext())
+            {
+                auto = _db.Automoviles.Find(id);
+            }
+            return View(auto);
+        }
+
+
+        [HttpPost]
         public ActionResult Ver()
         {
-            return View();
+
+            return RedirectToAction("Index", "Automoviles");
         }
     }
 }

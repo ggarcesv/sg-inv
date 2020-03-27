@@ -9,10 +9,13 @@ namespace TallerMecanico.Controllers
 {
     public class RepuestosController : Controller
     {
+        private TallerContext _db = new TallerContext();
+
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            List<Repuesto> Repuestos = _db.Repuestos.ToList();
+            return View(Repuestos);
         }
 
 
@@ -29,7 +32,9 @@ namespace TallerMecanico.Controllers
         {
             if (ModelState.IsValid)
             {
-                // por aqui guardamos en la base de datos
+                _db = new TallerContext();
+                _db.Repuestos.Add(r);
+                _db.SaveChanges();
                 return RedirectToAction("Index", "Repuestos");
             }
             return View(r);
@@ -39,7 +44,12 @@ namespace TallerMecanico.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View();
+            Repuesto r = null;
+            using (_db = new TallerContext())
+            {
+                r = _db.Repuestos.Find(id);
+            }
+            return View(r);
         }
 
         [HttpPost]
@@ -47,16 +57,30 @@ namespace TallerMecanico.Controllers
         {
             if (ModelState.IsValid)
             {
-                // por aqui guardamos en la base de datos
-                return RedirectToAction("View", "Repuestos", new { id = id });
+                _db = new TallerContext();
+                _db.Entry(r).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index", "Repuestos", new { id = r.Id });
             }
             return View(r);
         }
 
         [HttpGet]
+        public ActionResult Ver(int id)
+        {
+            Repuesto r = null;
+            using (_db = new TallerContext())
+            {
+                r = _db.Repuestos.Find(id);
+            }
+            return View(r);
+        }
+
+        [HttpPost]
         public ActionResult Ver()
         {
-            return View();
+            return RedirectToAction("Index", "Repuestos"); 
         }
+
     }
 }
