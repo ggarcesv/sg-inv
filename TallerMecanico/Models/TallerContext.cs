@@ -10,6 +10,9 @@ namespace TallerMecanico.Models
     {
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Automovil> Automoviles { get; set; }
+
+        public DbSet<Repuesto> Repuestos { get; set; }
+        //public object Marca { get; internal set; }
     }
 }
 

@@ -10,19 +10,15 @@ namespace TallerMecanico.Models
     {
         public int Id { get; set; }
 
-
-        [Required]
         [RangeAttribute(0, 100000000)]
         public int Precio { get; set; }
 
-        [Required]
         [RangeAttribute(0, 1000)]
         public int Stock { get; set; }
 
         [Required]
         [StringLength(10, MinimumLength = 9)]
         public String Patente { get; set; }
-
 
         [Required]
         [StringLength(30, MinimumLength = 4)]
@@ -32,10 +28,12 @@ namespace TallerMecanico.Models
         [StringLength(20, MinimumLength = 4)]
         public String Color { get; set; }
 
-
         [Required]
         [RangeAttribute(1900, 2100)]
         public int Anio { get; set; }
 
+        [Required]
+        public int MarcaId { get; set; }
+        public virtual Marca Marca { get; set; }
     }
 }

@@ -15,5 +15,8 @@ namespace TallerMecanico.Models
         [StringLength(30, MinimumLength = 4)]
         public String Nombre { get; set; }
 
+        public virtual ICollection<Automovil> Automoviles { get; set; }
+
+       
     }
 }
