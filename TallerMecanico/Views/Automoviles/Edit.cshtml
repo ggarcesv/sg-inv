@@ -6,8 +6,9 @@
     <div class="page-header">
         <h1>Editar Automovil</h1>
     </div>
-    
+ 
     <form method="POST" class="producto form-horizontal" action="@Url.Action("Edit","Automoviles")">
+        <input type="hidden" value="@Model.Id" name="MarcaId" />
         <fieldset>
             <div class="control-group">
                 <label class="control-label">Patente:</label>
@@ -16,18 +17,15 @@
                 </div>
             </div>
 
-            <div class="control-group">
+            @*<div class="control-group">
                 <label class="control-label">Marca:</label>
-                <div class="controls">
+                <div class="controls" name="Id">
                     <select class="input-xlarge">
-                        <option value="1">Chevrolet</option>
-                        <option value="2">Toyota</option>
-                        <option value="3">Tesla Motors</option>
-                        <option value="4">Ford</option>
+                        <option value="1"> </option>
                     </select>
                 </div>
-            </div>
-
+            </div>*@
+            
             <div class="control-group">
                 <label class="control-label">Modelo:</label>
                 <div class="controls">

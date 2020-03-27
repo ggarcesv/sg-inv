@@ -7,12 +7,12 @@
         <h1>Editar Marca</h1>
     </div>
     <form method="POST" class="form-horizontal" action="@Url.Action("Edit","Marcas")">
-            <input type="hidden" value="@Model.Id" name="Id" />
+        <input type="hidden" value="@Model.Id" name="Id" />
         <fieldset>
                 <div class="control-group">
                     <label class="control-label">Nombre:</label>
                     <div class="controls">
-                        <input class="input-xlarge" name="Nombre" type="text" value="Chevrolet">
+                        <input class="input-xlarge" name="Nombre" type="text" value="@Model.Nombre">
                     </div>
                 </div>
                 <div class="form-actions">

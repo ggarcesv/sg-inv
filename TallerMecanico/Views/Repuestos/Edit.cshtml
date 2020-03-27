@@ -7,23 +7,24 @@
         <h1>Editar Repuesto</h1>
     </div>
     <form method="POST" class="form-horizontal" action="@Url.Action("Edit","Repuestos")">
+        <input type="hidden" value="@Model.Id" name="Id" />
         <fieldset>
             <div class="control-group">
                 <label class="control-label">Nombre:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Nombre" type="text" value="Pastilla de freno">
+                    <input class="input-xlarge" name="Nombre" type="text" value="@Model.Nombre">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Precio:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Precio" type="text" value="20.000">
+                    <input class="input-xlarge" name="Precio" type="text" value="@Model.Precio">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Stock:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Stock" type="text" value="10">
+                    <input class="input-xlarge" name="Stock" type="text" value="@Model.Stock">
                 </div>
             </div>
 

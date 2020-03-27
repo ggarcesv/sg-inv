@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<TallerMecanico.Models.Repuesto>
+
 <div class="span9">
     <div class="page-header">
         <h1>Listar Repuestos</h1>
@@ -15,53 +16,24 @@
             </tr>
         </thead>
         <tbody>
+
+        <tbody>
+            @foreach (var repuesto in Model)
+            {
             <tr>
-                <td>1</td>
-                <td>Pastillas de freno</td>
-                <td>20.000</td>
-                <td>10</td>
+                <td>@repuesto.Id</td>
+                <td>@repuesto.Nombre</td>
+                <td>@repuesto.Precio</td>
+                <td>@repuesto.Stock</td>
                 <td>
-                    <a href="/Repuestos/ver">Ver</a>
-                    <a href="/Repuestos/edit">Editar</a>
-                    <a href="#">Automoviles</a>
+                    <a href="@Url.Action("Ver", "Repuestos", new { id = repuesto.Id })">Ver</a>
+                    | <a href="@Url.Action("Edit","Repuestos", new { id = repuesto.Id})">Editar</a>
+                    | <a href="">Automoviles</a>  @*@Url.Action("Auto","Repuestos", new { id = repuesto.Id})*@
                 </td>
+
             </tr>
-            <tr>
-            <tr>
-                <td>2</td>
-                <td>Pastillas de freno</td>
-                <td>20.000</td>
-                <td>10</td>
-                <td>
-                    <a href="/Repuestos/ver">Ver</a>
-                    <a href="/Repuestos/edit">Editar</a>
-                    <a href="#">Automoviles</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>3</td>
-                <td>Pastillas de freno</td>
-                <td>20.000</td>
-                <td>10</td>
-                <td>
-                    <a href="/Repuestos/ver">Ver</a>
-                    <a href="/Repuestos/edit">Editar</a>
-                    <a href="#">Automoviles</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>4</td>
-                <td>Pastillas de freno</td>
-                <td>20.000</td>
-                <td>10</td>
-                <td>
-                    <a href="/Repuestos/ver">Ver</a>
-                    <a href="/Repuestos/edit">Editar</a>
-                    <a href="#">Automoviles</a>
-                </td>
-            </tr>
+            }
         </tbody>
     </table>
+    <p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>
 </div>

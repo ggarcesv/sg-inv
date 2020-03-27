@@ -21,76 +21,21 @@
             @foreach (var automovil in Model)
             {
             <tr>
+                
                 <td>@automovil.Id</td>
                 <td>@automovil.Patente</td>
-                @*<td>@automovil.Marca</td>*@
+                <td>@automovil.Marca.Nombre</td>
                 <td>@automovil.Modelo</td>
                 <td>@automovil.Color</td>
                 <td>@automovil.Anio</td>
-                <td>Estatico</td>
                 <td>
-                    <a href="@Url.Action("View","Automoviles", new { id = automovil.Id})">Ver</a>
-                     | <a href="@Url.Action("Edit","Automoviles", new { id = automovil.Id})">Editar</a>
+                    <a href="@Url.Action("Ver","Automoviles", new { id = automovil.Id})">Ver</a>
+                    | <a href="@Url.Action("Edit","Automoviles", new { id = automovil.Id})">Editar</a>
                 </td>
 
             </tr>
-                
+
             }
-            @*<tr>
-                <td>1</td>
-                <td>CXRX88</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>Plata</td>
-                <td>2011</td>
-                <td>
-                    <a href="/Automoviles/ver">Ver</a>
-                    <a href="/Automoviles/edit">Editar</a>
-                    <a href="#">Repuestos</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>2</td>
-                <td>CXRX88</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>Plata</td>
-                <td>2011</td>
-                <td>
-                    <a href="/Automoviles/ver">Ver</a>
-                    <a href="/Automoviles/edit">Editar</a>
-                    <a href="#">Repuestos</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>3</td>
-                <td>CXRX88</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>Plata</td>
-                <td>2011</td>
-                <td>
-                    <a href="/Automoviles/ver">Ver</a>
-                    <a href="/Automoviles/edit">Editar</a>
-                    <a href="#">Repuestos</a>
-                </td>
-            </tr>
-            <tr>
-            <tr>
-                <td>4</td>
-                <td>CXRX88</td>
-                <td>Chevrolet</td>
-                <td>Sail</td>
-                <td>Plata</td>
-                <td>2011</td>
-                <td>
-                    <a href="/Automoviles/ver">Ver</a>
-                    <a href="/Automoviles/edit">Editar</a>
-                    <a href="#">Repuestos</a>
-                </td>
-            </tr>*@
         </tbody>
     </table>
     <p class="table-result-count">Se han encontrado @Model.Count() resultado(s).</p>

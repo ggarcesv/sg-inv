@@ -1,5 +1,6 @@
 ﻿@model TallerMecanico.Models.Automovil
 
+
 @Html.ValidationSummary()
 
 <div class="span9">
@@ -12,18 +13,20 @@
             <div class="control-group">
                 <label class="control-label">Patente:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Patente" type="text" value="@Model.Patente">
+                    <input class="input-xlarge" name="Patente" type="text" value="">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Marca:</label>
                 <div class="controls">
-                    <select class="input-xlarge">
-                        <option value="1">Chevrolet</option>
-                        <option value="2">Toyota</option>
-                        <option value="3">Tesla Motors</option>
-                        <option value="4">Ford</option>
+                    <select class="input-xlarge" name="MarcaId" type="text">
+                        <option value="1"> </option>
+                        @*@foreach (var marca in Model)
+                        {
+                            <option value="@Marca.Id">@Marca.Nombre</option>
+                        }*@
+
                     </select>
                 </div>
             </div>
@@ -31,24 +34,24 @@
             <div class="control-group">
                 <label class="control-label">Modelo:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Modelo" type="text" value="@Model.Modelo">
+                    <input class="input-xlarge" name="Modelo" type="text" value="">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Color:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Color" type="text" value="@Model.Color">
+                    <input class="input-xlarge" name="Color" type="text" value="">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Año:</label>
                 <div class="controls">
-                    <input class="input-xlarge" name="Anio" type="text" value="@Model.Anio">
+                    <input class="input-xlarge" name="Anio" type="text" value="">
                 </div>
             </div>
-           
+
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
