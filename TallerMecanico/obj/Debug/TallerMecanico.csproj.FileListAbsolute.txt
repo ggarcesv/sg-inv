@@ -262,7 +262,6 @@ C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMec
 C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\bin\es\System.Web.WebPages.resources.dll
 C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\obj\Debug\TallerMecanico.csprojAssemblyReference.cache
 C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\obj\Debug\TallerMecanico.csproj.CoreCompileInputs.cache
 C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\obj\Debug\TallerMecanico.csproj.CopyComplete
 C:\Users\ggarcesv\Desktop\Lenguaje de Programación Web\TallerMecanico\TallerMecanico\obj\Debug\TallerMecanico.dll
